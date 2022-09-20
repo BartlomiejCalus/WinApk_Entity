@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WinApk_Entity.Entities
 {
-    internal class ApkDbContext: DbContext
+    public class ApkDbContext: DbContext
     {
         private readonly string _connectionString =
            "Server=DESKTOP-P6EHEFN\\SQLEXPRESS;DataBase=MyApkDb;Trusted_Connection=True";

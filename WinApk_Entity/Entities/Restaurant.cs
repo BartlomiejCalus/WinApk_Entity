@@ -1,6 +1,6 @@
 ﻿namespace WinApk_Entity.Entities
 {
-    internal class Restaurant
+    public class Restaurant
     {
         public int Id { get; set; }
         public string Name { get; set; }

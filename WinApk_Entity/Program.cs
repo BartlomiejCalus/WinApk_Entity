@@ -1,17 +1,18 @@
+using WinApk_Entity.Entities;
+
 namespace WinApk_Entity
 {
     internal static class Program
-    {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
+    {  
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            ApkDbContext _dbContext = new ApkDbContext();
+            Seeder seed = new Seeder(_dbContext);
+            seed.seed();
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            //Application.Run(new Form1());
+            Application.Run(new LoginPanel());
         }
     }
 }

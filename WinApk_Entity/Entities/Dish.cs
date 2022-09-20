@@ -1,6 +1,6 @@
 ﻿namespace WinApk_Entity.Entities
 {
-    internal class Dish
+    public class Dish
     {
         public int Id { get; set; }
         public string Name { get; set; }

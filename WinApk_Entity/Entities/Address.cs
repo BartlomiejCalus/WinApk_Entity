@@ -1,6 +1,6 @@
 ﻿namespace WinApk_Entity.Entities
 {
-    internal class Address
+    public class Address
     {
         public int Id { get; set; }
         public string Street { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace WinApk_Entity.Entities
 {
-    internal class User
+    public class User
     {
         public int Id { get; set; }
         public string Email { get; set; }

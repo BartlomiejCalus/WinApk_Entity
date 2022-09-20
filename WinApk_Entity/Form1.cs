@@ -1,3 +1,6 @@
+using WinApk_Entity.Entities;
+using Microsoft.EntityFrameworkCore;
+
 namespace WinApk_Entity
 {
     public partial class Form1 : Form
@@ -5,6 +8,7 @@ namespace WinApk_Entity
         public Form1()
         {
             InitializeComponent();
+            
         }
     }
 }
