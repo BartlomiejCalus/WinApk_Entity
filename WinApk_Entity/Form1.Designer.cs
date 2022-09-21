@@ -28,12 +28,66 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.navPanel = new System.Windows.Forms.Panel();
+            this.navBtnPanel = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.mainPanel = new System.Windows.Forms.Panel();
+            this.navPanel.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // navPanel
+            // 
+            this.navPanel.Controls.Add(this.navBtnPanel);
+            this.navPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.navPanel.Location = new System.Drawing.Point(0, 0);
+            this.navPanel.Name = "navPanel";
+            this.navPanel.Size = new System.Drawing.Size(800, 69);
+            this.navPanel.TabIndex = 0;
+            // 
+            // navBtnPanel
+            // 
+            this.navBtnPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navBtnPanel.Location = new System.Drawing.Point(0, 0);
+            this.navBtnPanel.Name = "navBtnPanel";
+            this.navBtnPanel.Size = new System.Drawing.Size(800, 69);
+            this.navBtnPanel.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 69);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(143, 381);
+            this.panel2.TabIndex = 1;
+            // 
+            // mainPanel
+            // 
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPanel.Location = new System.Drawing.Point(143, 69);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(657, 381);
+            this.mainPanel.TabIndex = 3;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Controls.Add(this.mainPanel);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.navPanel);
+            this.Name = "Form1";
+            this.Text = "Eat Apk";
+            this.navPanel.ResumeLayout(false);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private Panel navPanel;
+        private Panel panel2;
+        private Panel mainPanel;
+        private Panel navBtnPanel;
     }
 }

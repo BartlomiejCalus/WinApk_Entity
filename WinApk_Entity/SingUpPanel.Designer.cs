@@ -1,6 +1,6 @@
 ﻿namespace WinApk_Entity
 {
-    partial class LoginPanel
+    partial class SingUpPanel
     {
         /// <summary>
         /// Required designer variable.
@@ -28,57 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.loginBtn = new System.Windows.Forms.Button();
             this.Email_TB = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.Password_TB = new System.Windows.Forms.TextBox();
-            this.SingUpBtn = new System.Windows.Forms.Button();
+            this.ConfirmPW_TB = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // loginBtn
-            // 
-            this.loginBtn.Location = new System.Drawing.Point(61, 169);
-            this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(75, 23);
-            this.loginBtn.TabIndex = 0;
-            this.loginBtn.Text = "button1";
-            this.loginBtn.UseVisualStyleBackColor = true;
             // 
             // Email_TB
             // 
-            this.Email_TB.Location = new System.Drawing.Point(12, 66);
+            this.Email_TB.Location = new System.Drawing.Point(12, 53);
             this.Email_TB.Name = "Email_TB";
-            this.Email_TB.Size = new System.Drawing.Size(175, 23);
-            this.Email_TB.TabIndex = 1;
+            this.Email_TB.Size = new System.Drawing.Size(181, 23);
+            this.Email_TB.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 191);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Password_TB
             // 
-            this.Password_TB.Location = new System.Drawing.Point(12, 116);
+            this.Password_TB.Location = new System.Drawing.Point(12, 98);
             this.Password_TB.Name = "Password_TB";
-            this.Password_TB.Size = new System.Drawing.Size(175, 23);
-            this.Password_TB.TabIndex = 1;
+            this.Password_TB.Size = new System.Drawing.Size(181, 23);
+            this.Password_TB.TabIndex = 0;
             // 
-            // SingUpBtn
+            // ConfirmPW_TB
             // 
-            this.SingUpBtn.Location = new System.Drawing.Point(61, 212);
-            this.SingUpBtn.Name = "SingUpBtn";
-            this.SingUpBtn.Size = new System.Drawing.Size(75, 23);
-            this.SingUpBtn.TabIndex = 0;
-            this.SingUpBtn.Text = "button1";
-            this.SingUpBtn.UseVisualStyleBackColor = true;
-            this.SingUpBtn.Click += new System.EventHandler(this.SingUpBtn_Click);
+            this.ConfirmPW_TB.Location = new System.Drawing.Point(12, 139);
+            this.ConfirmPW_TB.Name = "ConfirmPW_TB";
+            this.ConfirmPW_TB.Size = new System.Drawing.Size(181, 23);
+            this.ConfirmPW_TB.TabIndex = 0;
             // 
-            // LoginPanel
+            // SingUpPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(205, 301);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ConfirmPW_TB);
             this.Controls.Add(this.Password_TB);
             this.Controls.Add(this.Email_TB);
-            this.Controls.Add(this.SingUpBtn);
-            this.Controls.Add(this.loginBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "LoginPanel";
-            this.Text = "LoginPanel";
+            this.Name = "SingUpPanel";
+            this.Text = "SingUpPanel";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -86,9 +84,9 @@
 
         #endregion
 
-        private Button loginBtn;
         private TextBox Email_TB;
+        private Button button1;
         private TextBox Password_TB;
-        private Button SingUpBtn;
+        private TextBox ConfirmPW_TB;
     }
 }

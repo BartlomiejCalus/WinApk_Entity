@@ -7,22 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
+
+using WinApk_Entity.Entities;
 
 namespace WinApk_Entity
 {
     public partial class LoginPanel : Form
     {
+        ApkDbContext _dbContext = new ApkDbContext();
         public LoginPanel()
         {
             InitializeComponent();
         }
 
-        private void Email_TB_TextChanged(object sender, EventArgs e)
+        private void SingUpBtn_Click(object sender, EventArgs e)
         {
-            if (Email_TB.Text == "Email")
-            {
-                Email_TB.Text = String.Empty;
-            }
+            SingUpPanel singUpPanel = new SingUpPanel();
+            singUpPanel.Show();
         }
     }
 }
