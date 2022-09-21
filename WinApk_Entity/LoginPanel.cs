@@ -11,11 +11,14 @@ using Microsoft.EntityFrameworkCore;
 
 using WinApk_Entity.Entities;
 
+using WinApk_Entity.Services;
+using WinApk_Entity.Models;
+
 namespace WinApk_Entity
 {
     public partial class LoginPanel : Form
     {
-        ApkDbContext _dbContext = new ApkDbContext();
+        private readonly AccountService _accountService = new AccountService();
         public LoginPanel()
         {
             InitializeComponent();
@@ -23,8 +26,31 @@ namespace WinApk_Entity
 
         private void SingUpBtn_Click(object sender, EventArgs e)
         {
-            SingUpPanel singUpPanel = new SingUpPanel();
+            SignUpPanel singUpPanel = new SignUpPanel();
             singUpPanel.Show();
+        }
+
+        private void loginBtn_Click(object sender, EventArgs e)
+        {
+            UserLoginDto dto = new UserLoginDto()
+            {
+                Email = Email_TB.Text,
+                Password = Password_TB.Text
+            };
+
+            var result = _accountService.LoginUser(dto);
+
+            if (result!=null)
+            {
+                Form1 fm1 = new Form1(result);
+                this.Visible = false;
+                fm1.ShowDialog();
+                this.Close();              
+            }
+            else
+            {
+                MessageBox.Show("Email or Password is wrong", "Message",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
         }
     }
 }

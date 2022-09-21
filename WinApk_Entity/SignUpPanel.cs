@@ -15,11 +15,11 @@ using WinApk_Entity.Models;
 
 namespace WinApk_Entity
 {
-    public partial class SingUpPanel : Form
+    public partial class SignUpPanel : Form
     {
         AccountService _accountService = new AccountService();
         UserRegisterDto dto;
-        public SingUpPanel()
+        public SignUpPanel()
         {
             InitializeComponent();
         }
@@ -49,6 +49,8 @@ namespace WinApk_Entity
                 
             }
             _accountService.RegisterUser(dto);
+
+            this.Close();
         }
     }
 }

@@ -32,7 +32,9 @@
             this.navBtnPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.navPanel.SuspendLayout();
+            this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // navPanel
@@ -62,11 +64,21 @@
             // 
             // mainPanel
             // 
+            this.mainPanel.Controls.Add(this.label1);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(143, 69);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(657, 381);
             this.mainPanel.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(147, 67);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
             // 
             // Form1
             // 
@@ -79,6 +91,8 @@
             this.Name = "Form1";
             this.Text = "Eat Apk";
             this.navPanel.ResumeLayout(false);
+            this.mainPanel.ResumeLayout(false);
+            this.mainPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -89,5 +103,6 @@
         private Panel panel2;
         private Panel mainPanel;
         private Panel navBtnPanel;
+        private Label label1;
     }
 }
