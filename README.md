@@ -1,1 +1,1 @@
-# WinApk_Entity
+Testing how EF work with Windows Forms
