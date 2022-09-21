@@ -38,19 +38,7 @@ namespace WinApk_Entity
                 Password = Password_TB.Text
             };
 
-            var result = _accountService.LoginUser(dto);
-
-            if (result!=null)
-            {
-                Form1 fm1 = new Form1(result);
-                this.Visible = false;
-                fm1.ShowDialog();
-                this.Close();              
-            }
-            else
-            {
-                MessageBox.Show("Email or Password is wrong", "Message",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-            }
+            _accountService.LoginUser(dto,this);
         }
     }
 }

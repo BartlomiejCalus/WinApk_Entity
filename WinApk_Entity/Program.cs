@@ -10,6 +10,7 @@ namespace WinApk_Entity
             ApkDbContext _dbContext = new ApkDbContext();
             Seeder seed = new Seeder(_dbContext);
             seed.seed();
+
             ApplicationConfiguration.Initialize();
             Application.Run(new LoginPanel());
         }
