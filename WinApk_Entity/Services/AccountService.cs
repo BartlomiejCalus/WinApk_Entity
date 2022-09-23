@@ -39,7 +39,7 @@ namespace WinApk_Entity.Services
 
                 if (result != PasswordVerificationResult.Failed)
                 {
-                    Form1 fm1 = new Form1(user.Email);
+                    Form1 fm1 = new Form1(user.Email, user.Role.Id);
                     panel.Visible = false;
                     fm1.ShowDialog();
                     panel.Close();

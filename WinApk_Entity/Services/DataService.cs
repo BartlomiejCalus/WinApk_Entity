@@ -8,8 +8,8 @@ namespace WinApk_Entity.Services
 {
     public class DataService
     {
-        ApkDbContext _dbContext = new ApkDbContext();
-        Mapper _mapper;
+        private readonly ApkDbContext _dbContext = new ApkDbContext();
+        private readonly Mapper _mapper, _mapperDish;
 
         public DataService()
         {
@@ -18,7 +18,11 @@ namespace WinApk_Entity.Services
             .ForMember(m => m.City, c => c.MapFrom(s => s.Address.City))
             .ForMember(m => m.Street, c => c.MapFrom(s => s.Address.Street)));
 
+            var config2 = new MapperConfiguration(cfg =>
+            cfg.CreateMap<Dish, DishDto>());
+
             _mapper = new Mapper(config);
+            _mapperDish = new Mapper(config2);
         }
 
         public IEnumerable<RestaurantDto> ShowData()
@@ -65,6 +69,24 @@ namespace WinApk_Entity.Services
 
 
             return restaurantsDto;
+
+        }
+
+        public IEnumerable<DishDto> GetDishes(string search)
+        {
+            var result = _dbContext
+                .Restaurants
+                .Include(r => r.Dishes)
+                .FirstOrDefault(r => r.Name == search);
+
+            if (result == null)
+                return null;
+
+            var dishes = result.Dishes.ToList();
+
+            var dishesDto = _mapperDish.Map<List<DishDto>>(dishes);
+
+            return dishesDto;
 
         }
     }
