@@ -28,9 +28,44 @@ namespace WinApk_Entity.Services
                 .Include(s => s.Address)
                 .ToList();
 
-            var restaurantDto = _mapper.Map<List<RestaurantDto>>(result);
+            var restaurantsDto = _mapper.Map<List<RestaurantDto>>(result);
 
-            return restaurantDto;
+            return restaurantsDto;
+        }
+
+        public IEnumerable<RestaurantDto> GetRestaurant(string search)
+        {
+            var result = _dbContext
+                .Restaurants
+                .Include(r => r.Address)
+                .Where(r => r.Name == search)
+                .ToList();
+
+            if (result == null)
+                return null;
+
+            var restaurantsDto = _mapper.Map<List<RestaurantDto>>(result);
+
+            return restaurantsDto;
+
+        }
+
+        public IEnumerable<RestaurantDto> GetRestaurant(string city = "", string street = "")
+        {
+            var result = _dbContext
+                .Restaurants
+                .Include(r => r.Address)
+                .Where(r => r.Address.City == city || r.Address.Street == street)
+                .ToList();
+
+            if (result == null)
+                return null;
+
+            var restaurantsDto = _mapper.Map<List<RestaurantDto>>(result);
+
+
+            return restaurantsDto;
+
         }
     }
 }

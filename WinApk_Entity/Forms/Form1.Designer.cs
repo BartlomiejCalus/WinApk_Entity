@@ -36,10 +36,16 @@
             this.HomeBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.FiltrBtn = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Street_TB = new System.Windows.Forms.TextBox();
+            this.City_TB = new System.Windows.Forms.TextBox();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.navPanel.SuspendLayout();
             this.navBtnPanel.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -87,6 +93,7 @@
             this.SearchBtn.TabIndex = 2;
             this.SearchBtn.Text = "Search";
             this.SearchBtn.UseVisualStyleBackColor = true;
+            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
             // settingsBtn
             // 
@@ -98,6 +105,7 @@
             this.settingsBtn.TabIndex = 1;
             this.settingsBtn.Text = "Settings";
             this.settingsBtn.UseVisualStyleBackColor = true;
+            this.settingsBtn.Click += new System.EventHandler(this.settingsBtn_Click);
             // 
             // HomeBtn
             // 
@@ -109,6 +117,7 @@
             this.HomeBtn.TabIndex = 0;
             this.HomeBtn.Text = "Home";
             this.HomeBtn.UseVisualStyleBackColor = true;
+            this.HomeBtn.Click += new System.EventHandler(this.HomeBtn_Click);
             // 
             // label1
             // 
@@ -124,11 +133,58 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.FiltrBtn);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.Street_TB);
+            this.panel2.Controls.Add(this.City_TB);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 34);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(157, 416);
             this.panel2.TabIndex = 1;
+            // 
+            // FiltrBtn
+            // 
+            this.FiltrBtn.Location = new System.Drawing.Point(11, 166);
+            this.FiltrBtn.Name = "FiltrBtn";
+            this.FiltrBtn.Size = new System.Drawing.Size(75, 23);
+            this.FiltrBtn.TabIndex = 2;
+            this.FiltrBtn.Text = "Find";
+            this.FiltrBtn.UseVisualStyleBackColor = true;
+            this.FiltrBtn.Click += new System.EventHandler(this.FiltrBtn_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 15);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Ulica";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Miasto";
+            // 
+            // Street_TB
+            // 
+            this.Street_TB.Location = new System.Drawing.Point(11, 119);
+            this.Street_TB.Name = "Street_TB";
+            this.Street_TB.Size = new System.Drawing.Size(100, 23);
+            this.Street_TB.TabIndex = 0;
+            // 
+            // City_TB
+            // 
+            this.City_TB.Location = new System.Drawing.Point(11, 58);
+            this.City_TB.Name = "City_TB";
+            this.City_TB.Size = new System.Drawing.Size(100, 23);
+            this.City_TB.TabIndex = 0;
             // 
             // mainPanel
             // 
@@ -142,6 +198,10 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -164,6 +224,8 @@
             this.navPanel.PerformLayout();
             this.navBtnPanel.ResumeLayout(false);
             this.navBtnPanel.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.mainPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -182,5 +244,10 @@
         private Button settingsBtn;
         private Button HomeBtn;
         private DataGridView dataGridView1;
+        private Button FiltrBtn;
+        private Label label3;
+        private Label label2;
+        private TextBox Street_TB;
+        private TextBox City_TB;
     }
 }
