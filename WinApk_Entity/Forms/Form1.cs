@@ -10,44 +10,44 @@ namespace WinApk_Entity
         private readonly DataService _dtService = new DataService();
 
         private readonly string _mail;
+        private readonly int _role;
+
+        private DataGridView _dGV;
         public Form1(string mail, int role)
         {
             InitializeComponent();
             _mail = mail;
+            _role = role;
             label1.Text = $"Zalogowany: {_mail}";
 
-            dataGridView1.DataSource = _dtService.ShowData();
+            _dGV = _dtService.SetGrid(this.mainPanel);
+            
+            if(role != 1)
+                settingsBtn.Visible = true;
+
+            _dGV.DataSource = _dtService.ShowData();
             
         }
 
         private void settingsBtn_Click(object sender, EventArgs e)
         {
-
+            _dtService.SettingsMenu(_role, this.mainPanel);
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource=_dtService.GetRestaurant(textBox1.Text);
+            _dGV.DataSource=_dtService.GetRestaurant(textBox1.Text);
         }
 
         private void HomeBtn_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = _dtService.ShowData();
+            _dGV = _dtService.SetGrid(this.mainPanel);
+            _dGV.DataSource = _dtService.ShowData();
         }
 
         private void FiltrBtn_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = _dtService.GetRestaurant(City_TB.Text,Street_TB.Text);
-        }
-
-        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            string? restaurant = dataGridView1
-                .CurrentRow
-                .Cells[1].Value
-                .ToString();
-
-            dataGridView1.DataSource = _dtService.GetDishes(restaurant);
+            _dGV.DataSource = _dtService.GetRestaurant(City_TB.Text,Street_TB.Text);
         }
     }
 }

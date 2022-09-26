@@ -3,6 +3,7 @@ using AutoMapper;
 
 using WinApk_Entity.Entities;
 using WinApk_Entity.Models;
+using WinApk_Entity.Forms;
 
 namespace WinApk_Entity.Services
 {
@@ -88,6 +89,26 @@ namespace WinApk_Entity.Services
 
             return dishesDto;
 
+        }
+
+        public void SettingsMenu(int role, Panel panel)
+        {
+            panel.Controls.Clear();
+            MangerPanel MangerPanel_vr = new MangerPanel(role) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            MangerPanel_vr.FormBorderStyle = FormBorderStyle.None;
+            panel.Controls.Add(MangerPanel_vr);
+            MangerPanel_vr.Show();
+        }
+
+        public DataGridView SetGrid(Panel panel)
+        {
+            panel.Controls.Clear();
+            DataGrid DataGrid_vr = new DataGrid() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            DataGrid_vr.FormBorderStyle = FormBorderStyle.None;
+            panel.Controls.Add(DataGrid_vr);
+            DataGrid_vr.Show();
+            
+            return DataGrid_vr.gridView;
         }
     }
 }
