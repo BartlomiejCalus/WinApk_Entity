@@ -62,6 +62,7 @@
             // 
             // Restaurant_ComboBox
             // 
+            this.Restaurant_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Restaurant_ComboBox.FormattingEnabled = true;
             this.Restaurant_ComboBox.Location = new System.Drawing.Point(54, 45);
             this.Restaurant_ComboBox.Name = "Restaurant_ComboBox";

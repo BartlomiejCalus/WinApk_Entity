@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using AutoMapper;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 using WinApk_Entity.Models;
 using WinApk_Entity.Entities;
@@ -34,6 +35,22 @@ namespace WinApk_Entity.Services
                 .ToList();
 
             comboBox.DataSource = restaurants;
+            comboBox.ValueMember = "Id";
+            comboBox.DisplayMember = "Name";
+        }
+
+        public void LoadDishes (ComboBox comboBox, string name)
+        {
+            var restaurant = _dbContext
+                .Restaurants
+                .Include(r=>r.Dishes)
+                .FirstOrDefault(r=>r.Name==name);
+
+            var dishes = restaurant?
+                .Dishes
+                .ToList();
+
+            comboBox.DataSource = dishes;
             comboBox.ValueMember = "Id";
             comboBox.DisplayMember = "Name";
         }
@@ -68,6 +85,19 @@ namespace WinApk_Entity.Services
                     MessageBox.Show(r.ErrorMessage, "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }  
+        }
+
+        public void DeleteDish(string name)
+        {
+            var result = _dbContext
+                .Dishs
+                .FirstOrDefault(d=>d.Name == name);
+
+            if (result != null)
+            {
+                _dbContext.Remove(result);
+                _dbContext.SaveChanges();
+            }
         }
     }
 }

@@ -14,6 +14,8 @@ namespace WinApk_Entity.Forms
 {
     public partial class MangerPanel : Form
     {
+        private Color background, font;
+
         public MangerPanel(int role)
         {
             InitializeComponent();
@@ -25,11 +27,15 @@ namespace WinApk_Entity.Forms
                 UserEditBtn.Visible = true;
             }
                 
+            background = AddBtn.BackColor;
+            font = AddBtn.ForeColor;
 
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
+            isClicked(sender);
+
             this.canvasPanel.Controls.Clear();
             AddDish AddDish_vr = new AddDish() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             AddDish_vr.FormBorderStyle = FormBorderStyle.None;
@@ -39,27 +45,59 @@ namespace WinApk_Entity.Forms
 
         private void DelBtn_Click(object sender, EventArgs e)
         {
+            isClicked(sender);
 
+            this.canvasPanel.Controls.Clear();
+            DeleteDish DeleteDish_vr = new DeleteDish() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            DeleteDish_vr.FormBorderStyle = FormBorderStyle.None;
+            this.canvasPanel.Controls.Add(DeleteDish_vr);
+            DeleteDish_vr.Show();
         }
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
-
+            isClicked(sender);
         }
 
         private void UserAddBtn_Click(object sender, EventArgs e)
         {
-
+            isClicked(sender);
         }
 
         private void UserDelBtn_Click(object sender, EventArgs e)
         {
-
+            isClicked(sender);
         }
 
         private void UserEditBtn_Click(object sender, EventArgs e)
         {
+            isClicked(sender);
+        }
 
+        private void isClicked(object sender)
+        {
+            allClicked();
+            var btn = (Button)sender;
+            btn.BackColor = Color.Gray;
+            btn.ForeColor = Color.White;
+
+        }
+
+        private void allClicked()
+        {
+            UserAddBtn.ForeColor = font;
+            UserDelBtn.ForeColor = font;
+            UserEditBtn.ForeColor = font;
+            AddBtn.ForeColor = font;
+            DelBtn.ForeColor = font;
+            EditBtn.ForeColor = font;
+
+            UserAddBtn.BackColor = background;
+            UserDelBtn.BackColor = background;
+            UserEditBtn.BackColor = background;
+            AddBtn.BackColor = background;
+            DelBtn.BackColor = background;
+            EditBtn.BackColor = background;
         }
     }
 }
