@@ -41,6 +41,11 @@ namespace WinApk_Entity.Forms.Dishes
                 var restaurant = Restaurant_ComboBox.Text;
 
                 _dishService.AddDish(dto, restaurant);
+
+                MessageBox.Show("Added sucessful", null, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Descr_TB.Clear();
+                Name_TB.Clear();
+                Prize_TB.Clear();
             }
             else
             {

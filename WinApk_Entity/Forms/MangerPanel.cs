@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using WinApk_Entity.Forms.Dishes;
+using WinApk_Entity.Forms.Restaurant;
 
 namespace WinApk_Entity.Forms
 {
@@ -65,6 +66,39 @@ namespace WinApk_Entity.Forms
             EditDish_vr.Show();
         }
 
+        private void addRestaurantBtn_Click(object sender, EventArgs e)
+        {
+            isClicked(sender);
+
+            this.canvasPanel.Controls.Clear();
+            AddRestaurant AddRestaurant_vr = new AddRestaurant() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            AddRestaurant_vr.FormBorderStyle = FormBorderStyle.None;
+            this.canvasPanel.Controls.Add(AddRestaurant_vr);
+            AddRestaurant_vr.Show();
+        }
+
+        private void editRestaurantBtn_Click(object sender, EventArgs e)
+        {
+            isClicked(sender);
+
+            this.canvasPanel.Controls.Clear();
+            EditRestaurant EditRestaurant_vr = new EditRestaurant() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            EditRestaurant_vr.FormBorderStyle = FormBorderStyle.None;
+            this.canvasPanel.Controls.Add(EditRestaurant_vr);
+            EditRestaurant_vr.Show();
+        }
+
+        private void deleteRestaurantBtn_Click(object sender, EventArgs e)
+        {
+            isClicked(sender);
+
+            this.canvasPanel.Controls.Clear();
+            DeleteRestaurant DeleteRestaurant_vr = new DeleteRestaurant() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            DeleteRestaurant_vr.FormBorderStyle = FormBorderStyle.None;
+            this.canvasPanel.Controls.Add(DeleteRestaurant_vr);
+            DeleteRestaurant_vr.Show();
+        }
+
         private void UserAddBtn_Click(object sender, EventArgs e)
         {
             isClicked(sender);
@@ -97,6 +131,9 @@ namespace WinApk_Entity.Forms
             AddBtn.ForeColor = font;
             DelBtn.ForeColor = font;
             EditBtn.ForeColor = font;
+            addRestaurantBtn.ForeColor = font;
+            deleteRestaurantBtn.ForeColor = font;
+            editRestaurantBtn.ForeColor = font;
 
             UserAddBtn.BackColor = background;
             UserDelBtn.BackColor = background;
@@ -104,6 +141,9 @@ namespace WinApk_Entity.Forms
             AddBtn.BackColor = background;
             DelBtn.BackColor = background;
             EditBtn.BackColor = background;
+            addRestaurantBtn.BackColor = background;
+            deleteRestaurantBtn.BackColor = background;
+            editRestaurantBtn.BackColor = background;
         }
     }
 }

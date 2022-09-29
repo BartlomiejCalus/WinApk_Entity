@@ -45,6 +45,8 @@ namespace WinApk_Entity.Forms.Dishes
                 var dishName = dishes_CB.Text;
 
                 _dishService.EditDish(restaurantName, dishName, dto);
+
+                MessageBox.Show("Edited sucessful", null, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -67,7 +69,7 @@ namespace WinApk_Entity.Forms.Dishes
             DishDto dto = _dishService.showDish(restaurantName, dishName);
 
             Name_TB.Text = dto.Name.ToString();
-            Descr_TB.Text = dto.Description.ToString();
+            Descr_TB.Text = dto.Description?.ToString();
             Prize_TB.Text = dto.Prize.ToString();
         }
     }

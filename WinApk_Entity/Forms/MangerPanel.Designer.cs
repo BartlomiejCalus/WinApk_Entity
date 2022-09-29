@@ -36,11 +36,17 @@
             this.DelBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
             this.canvasPanel = new System.Windows.Forms.Panel();
+            this.editRestaurantBtn = new System.Windows.Forms.Button();
+            this.deleteRestaurantBtn = new System.Windows.Forms.Button();
+            this.addRestaurantBtn = new System.Windows.Forms.Button();
             this.btnPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPanel
             // 
+            this.btnPanel.Controls.Add(this.editRestaurantBtn);
+            this.btnPanel.Controls.Add(this.deleteRestaurantBtn);
+            this.btnPanel.Controls.Add(this.addRestaurantBtn);
             this.btnPanel.Controls.Add(this.UserEditBtn);
             this.btnPanel.Controls.Add(this.UserDelBtn);
             this.btnPanel.Controls.Add(this.UserAddBtn);
@@ -55,10 +61,10 @@
             // 
             // UserEditBtn
             // 
-            this.UserEditBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.UserEditBtn.Location = new System.Drawing.Point(0, 320);
+            this.UserEditBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.UserEditBtn.Location = new System.Drawing.Point(0, 248);
             this.UserEditBtn.Name = "UserEditBtn";
-            this.UserEditBtn.Size = new System.Drawing.Size(129, 64);
+            this.UserEditBtn.Size = new System.Drawing.Size(129, 56);
             this.UserEditBtn.TabIndex = 5;
             this.UserEditBtn.Text = "Edit User";
             this.UserEditBtn.UseVisualStyleBackColor = true;
@@ -67,10 +73,10 @@
             // 
             // UserDelBtn
             // 
-            this.UserDelBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.UserDelBtn.Location = new System.Drawing.Point(0, 256);
+            this.UserDelBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.UserDelBtn.Location = new System.Drawing.Point(0, 304);
             this.UserDelBtn.Name = "UserDelBtn";
-            this.UserDelBtn.Size = new System.Drawing.Size(129, 64);
+            this.UserDelBtn.Size = new System.Drawing.Size(129, 56);
             this.UserDelBtn.TabIndex = 4;
             this.UserDelBtn.Text = "Delete User";
             this.UserDelBtn.UseVisualStyleBackColor = true;
@@ -79,10 +85,10 @@
             // 
             // UserAddBtn
             // 
-            this.UserAddBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.UserAddBtn.Location = new System.Drawing.Point(0, 192);
+            this.UserAddBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.UserAddBtn.Location = new System.Drawing.Point(0, 360);
             this.UserAddBtn.Name = "UserAddBtn";
-            this.UserAddBtn.Size = new System.Drawing.Size(129, 64);
+            this.UserAddBtn.Size = new System.Drawing.Size(129, 56);
             this.UserAddBtn.TabIndex = 3;
             this.UserAddBtn.Text = "Add User";
             this.UserAddBtn.UseVisualStyleBackColor = true;
@@ -92,9 +98,9 @@
             // EditBtn
             // 
             this.EditBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.EditBtn.Location = new System.Drawing.Point(0, 128);
+            this.EditBtn.Location = new System.Drawing.Point(0, 84);
             this.EditBtn.Name = "EditBtn";
-            this.EditBtn.Size = new System.Drawing.Size(129, 64);
+            this.EditBtn.Size = new System.Drawing.Size(129, 42);
             this.EditBtn.TabIndex = 2;
             this.EditBtn.Text = "Edit Dish";
             this.EditBtn.UseVisualStyleBackColor = true;
@@ -103,9 +109,9 @@
             // DelBtn
             // 
             this.DelBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.DelBtn.Location = new System.Drawing.Point(0, 64);
+            this.DelBtn.Location = new System.Drawing.Point(0, 42);
             this.DelBtn.Name = "DelBtn";
-            this.DelBtn.Size = new System.Drawing.Size(129, 64);
+            this.DelBtn.Size = new System.Drawing.Size(129, 42);
             this.DelBtn.TabIndex = 1;
             this.DelBtn.Text = "Delete Dish";
             this.DelBtn.UseVisualStyleBackColor = true;
@@ -116,7 +122,7 @@
             this.AddBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.AddBtn.Location = new System.Drawing.Point(0, 0);
             this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(129, 64);
+            this.AddBtn.Size = new System.Drawing.Size(129, 42);
             this.AddBtn.TabIndex = 0;
             this.AddBtn.Text = "Add Dish";
             this.AddBtn.UseVisualStyleBackColor = true;
@@ -129,6 +135,39 @@
             this.canvasPanel.Name = "canvasPanel";
             this.canvasPanel.Size = new System.Drawing.Size(514, 416);
             this.canvasPanel.TabIndex = 1;
+            // 
+            // editRestaurantBtn
+            // 
+            this.editRestaurantBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.editRestaurantBtn.Location = new System.Drawing.Point(0, 210);
+            this.editRestaurantBtn.Name = "editRestaurantBtn";
+            this.editRestaurantBtn.Size = new System.Drawing.Size(129, 42);
+            this.editRestaurantBtn.TabIndex = 8;
+            this.editRestaurantBtn.Text = "Edit Restaurant";
+            this.editRestaurantBtn.UseVisualStyleBackColor = true;
+            this.editRestaurantBtn.Click += new System.EventHandler(this.editRestaurantBtn_Click);
+            // 
+            // deleteRestaurantBtn
+            // 
+            this.deleteRestaurantBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.deleteRestaurantBtn.Location = new System.Drawing.Point(0, 168);
+            this.deleteRestaurantBtn.Name = "deleteRestaurantBtn";
+            this.deleteRestaurantBtn.Size = new System.Drawing.Size(129, 42);
+            this.deleteRestaurantBtn.TabIndex = 7;
+            this.deleteRestaurantBtn.Text = "Delete Restaurant";
+            this.deleteRestaurantBtn.UseVisualStyleBackColor = true;
+            this.deleteRestaurantBtn.Click += new System.EventHandler(this.deleteRestaurantBtn_Click);
+            // 
+            // addRestaurantBtn
+            // 
+            this.addRestaurantBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.addRestaurantBtn.Location = new System.Drawing.Point(0, 126);
+            this.addRestaurantBtn.Name = "addRestaurantBtn";
+            this.addRestaurantBtn.Size = new System.Drawing.Size(129, 42);
+            this.addRestaurantBtn.TabIndex = 6;
+            this.addRestaurantBtn.Text = "Add Restaurant";
+            this.addRestaurantBtn.UseVisualStyleBackColor = true;
+            this.addRestaurantBtn.Click += new System.EventHandler(this.addRestaurantBtn_Click);
             // 
             // MangerPanel
             // 
@@ -155,5 +194,8 @@
         private Button UserDelBtn;
         private Button UserAddBtn;
         private Panel canvasPanel;
+        private Button editRestaurantBtn;
+        private Button deleteRestaurantBtn;
+        private Button addRestaurantBtn;
     }
 }
