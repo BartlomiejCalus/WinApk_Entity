@@ -6,6 +6,6 @@ The application will consist of elements: </br>
 🔸Search for a restaurant by its name or address [DONE✔]</br>
 🔸Display of dishes of the selected restaurant [DONE✔]</br>
 🔸Adding, editing and deleting dishes by user with appropriate role (manager) [DONE✔]</br>
-🔸Adding, editing and deleting restaurants by a user with the appropriate role (admin) </br>
+🔸Adding, editing and deleting restaurants by a user with the appropriate role (admin) [DONE✔]</br>
 🔸Adding, editing and deleting users by a user with the appropriate role (admin) </br>
 🔸Possibility of making an order </br>
