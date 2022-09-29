@@ -57,6 +57,12 @@ namespace WinApk_Entity.Forms
         private void EditBtn_Click(object sender, EventArgs e)
         {
             isClicked(sender);
+
+            this.canvasPanel.Controls.Clear();
+            EditDish EditDish_vr = new EditDish() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            EditDish_vr.FormBorderStyle = FormBorderStyle.None;
+            this.canvasPanel.Controls.Add(EditDish_vr);
+            EditDish_vr.Show();
         }
 
         private void UserAddBtn_Click(object sender, EventArgs e)

@@ -38,9 +38,9 @@ namespace WinApk_Entity.Forms.Dishes
                     Description = Descr_TB.Text
                 };
 
-                var Restaurant = Restaurant_ComboBox.Text;
+                var restaurant = Restaurant_ComboBox.Text;
 
-                _dishService.AddDish(dto, Restaurant);
+                _dishService.AddDish(dto, restaurant);
             }
             else
             {

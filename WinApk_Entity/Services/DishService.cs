@@ -18,14 +18,18 @@ namespace WinApk_Entity.Services
     {
         private readonly ApkDbContext _dbContext = new ApkDbContext();
 
-        private readonly Mapper _mapper;
+        private readonly Mapper _mapper, _mapperToDto;
 
         public DishService()
         {
             var config = new MapperConfiguration(cfg =>
             cfg.CreateMap<AddDishDto, Dish>());
 
+            var configToDto = new MapperConfiguration(cfg =>
+            cfg.CreateMap<Dish, DishDto>());
+
             _mapper = new Mapper(config);
+            _mapperToDto = new Mapper(configToDto);
         }
 
         public void LoadRestaurant(ComboBox comboBox)
@@ -53,6 +57,23 @@ namespace WinApk_Entity.Services
             comboBox.DataSource = dishes;
             comboBox.ValueMember = "Id";
             comboBox.DisplayMember = "Name";
+        }
+
+        public DishDto showDish(string RestaurantName, string dishName)
+        {
+            var restaurant = _dbContext
+                .Restaurants
+                .Include(r => r.Dishes)
+                .FirstOrDefault(r => r.Name == RestaurantName);
+
+            var dish = restaurant?
+                .Dishes
+                .FirstOrDefault(d => d.Name == dishName);
+
+            var result = _mapperToDto.Map<DishDto>(dish);
+
+            return result;
+
         }
 
         public void AddDish(AddDishDto dto, string Restaurant)
@@ -98,6 +119,41 @@ namespace WinApk_Entity.Services
                 _dbContext.Remove(result);
                 _dbContext.SaveChanges();
             }
+        }
+
+        public void EditDish(string RestaurantName, string dishName, AddDishDto dto)
+        {
+            var contex = new ValidationContext(dto, null, null);
+            var result = new List<ValidationResult>();
+
+            bool isValid = Validator.TryValidateObject(dto, contex, result, true);
+
+            if (!isValid)
+            {
+                foreach (var r in result)
+                {
+                    MessageBox.Show(r.ErrorMessage, "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                return;
+            }
+
+            var restaurant = _dbContext
+               .Restaurants
+               .Include(r => r.Dishes)
+               .FirstOrDefault(r => r.Name == RestaurantName);
+
+            var dish = restaurant?
+                .Dishes
+                .FirstOrDefault(d => d.Name == dishName);
+
+            var toDish = _mapper.Map<Dish>(dto);
+
+            dish.Name = toDish.Name;
+            dish.Prize = toDish.Prize;
+            dish.Description = toDish.Description;
+
+            _dbContext.SaveChanges();
         }
     }
 }
