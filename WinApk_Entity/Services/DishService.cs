@@ -113,11 +113,12 @@ namespace WinApk_Entity.Services
                 .Dishs
                 .FirstOrDefault(d=>d.Name == name);
 
-            if (result != null)
+            if (result == null)
             {
-                _dbContext.Remove(result);
-                _dbContext.SaveChanges();
+                return;
             }
+            _dbContext.Remove(result);
+            _dbContext.SaveChanges();
         }
 
         public void EditDish(string RestaurantName, string dishName, AddDishDto dto)

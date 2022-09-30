@@ -41,6 +41,7 @@
             this.name_TB = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.restaurant_CB = new System.Windows.Forms.ComboBox();
+            this.deleteBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label21
@@ -152,6 +153,16 @@
             this.restaurant_CB.TabIndex = 6;
             this.restaurant_CB.SelectedIndexChanged += new System.EventHandler(this.restaurant_CB_SelectedIndexChanged);
             // 
+            // deleteBtn
+            // 
+            this.deleteBtn.Location = new System.Drawing.Point(311, 356);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(75, 23);
+            this.deleteBtn.TabIndex = 5;
+            this.deleteBtn.Text = "Delete";
+            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            // 
             // EditRestaurant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -164,6 +175,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label33);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.postCode_TB);
             this.Controls.Add(this.city_TB);
@@ -193,5 +205,6 @@
         private TextBox name_TB;
         private Label label3;
         private ComboBox restaurant_CB;
+        private Button deleteBtn;
     }
 }

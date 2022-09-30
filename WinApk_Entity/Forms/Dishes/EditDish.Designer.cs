@@ -39,6 +39,7 @@
             this.Prize_TB = new System.Windows.Forms.TextBox();
             this.Name_TB = new System.Windows.Forms.TextBox();
             this.editBtn = new System.Windows.Forms.Button();
+            this.deleteBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -137,11 +138,22 @@
             this.editBtn.UseVisualStyleBackColor = true;
             this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
+            // deleteBtn
+            // 
+            this.deleteBtn.Location = new System.Drawing.Point(315, 353);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(81, 23);
+            this.deleteBtn.TabIndex = 5;
+            this.deleteBtn.Text = "Delete";
+            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            // 
             // EditDish
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 416);
+            this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
@@ -173,5 +185,6 @@
         private TextBox Prize_TB;
         private TextBox Name_TB;
         private Button editBtn;
+        private Button deleteBtn;
     }
 }

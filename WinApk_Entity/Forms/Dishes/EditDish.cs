@@ -20,6 +20,7 @@ namespace WinApk_Entity.Forms.Dishes
 
         public EditDish()
         {
+            
             InitializeComponent();
 
             _dishService.LoadRestaurant(restaurant_CB);
@@ -46,7 +47,7 @@ namespace WinApk_Entity.Forms.Dishes
 
                 _dishService.EditDish(restaurantName, dishName, dto);
 
-                MessageBox.Show("Edited sucessful", null, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Edited sucessful", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -71,6 +72,23 @@ namespace WinApk_Entity.Forms.Dishes
             Name_TB.Text = dto.Name.ToString();
             Descr_TB.Text = dto.Description?.ToString();
             Prize_TB.Text = dto.Prize.ToString();
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            var name = dishes_CB.Text;
+            if (name != "")
+            {
+                var result = MessageBox.Show($"Do you want to permanently remove {name} ?", "Warning",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                    _dishService.DeleteDish(name);
+            }
+
+            var nameRestaurant = restaurant_CB.Text;
+
+            _dishService.LoadDishes(dishes_CB, nameRestaurant);
         }
     }
 }

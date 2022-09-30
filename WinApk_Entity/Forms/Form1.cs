@@ -31,6 +31,10 @@ namespace WinApk_Entity
 
         private void settingsBtn_Click(object sender, EventArgs e)
         {
+            FiltrBtn.Enabled = false;
+            City_TB.Enabled = false;
+            Street_TB.Enabled = false;
+
             _dtService.SettingsMenu(_role, this.mainPanel);
         }
 
@@ -43,10 +47,15 @@ namespace WinApk_Entity
         {
             _dGV = _dtService.SetGrid(this.mainPanel);
             _dGV.DataSource = _dtService.ShowData();
+
+            FiltrBtn.Enabled = true;
+            City_TB.Enabled = true;
+            Street_TB.Enabled = true;
         }
 
         private void FiltrBtn_Click(object sender, EventArgs e)
         {
+
             _dGV.DataSource = _dtService.GetRestaurant(City_TB.Text,Street_TB.Text);
         }
     }

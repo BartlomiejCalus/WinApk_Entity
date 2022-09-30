@@ -16,10 +16,15 @@ namespace WinApk_Entity.Forms.Restaurant
     public partial class EditRestaurant : Form
     {
         private readonly RestaurantService _restaurantService = new RestaurantService();
+        private readonly List<Entities.Restaurant> restaurants;
         public EditRestaurant()
         {
+            restaurants = _restaurantService.LoadRestaurant();
             InitializeComponent();
-            _restaurantService.LoadRestaurant(restaurant_CB);
+            
+            restaurant_CB.DataSource = restaurants;
+            restaurant_CB.ValueMember = "Id";
+            restaurant_CB.DisplayMember = "Name";
         }
 
         private void editBtn_Click(object sender, EventArgs e)
@@ -37,12 +42,12 @@ namespace WinApk_Entity.Forms.Restaurant
 
             _restaurantService.EditRestaurant(restaurantName, dto);
 
-            MessageBox.Show("Edited sucessful", null, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Edited sucessful", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void restaurant_CB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var restaurantName = restaurant_CB.Text;
+            var restaurantName = restaurants[restaurant_CB.SelectedIndex].Name;
 
             AddRestaurantDto dto = _restaurantService.ShowRestaurant(restaurantName);
 
@@ -54,6 +59,25 @@ namespace WinApk_Entity.Forms.Restaurant
             name_TB.Text = dto.Name;
             postCode_TB.Text = dto.PostCode;
             street_TB.Text = dto.Street;
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            var name = restaurant_CB.Text;
+            if (name != "")
+            {
+                var result = MessageBox.Show($"Do you want to permanently remove {name} ?", "Warning",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                    _restaurantService.DeleteRestaurant(name);
+
+                _restaurantService.LoadRestaurant();
+
+                restaurant_CB.DataSource = restaurants;
+                restaurant_CB.ValueMember = "Id";
+                restaurant_CB.DisplayMember = "Name";
+            }
         }
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using WinApk_Entity.Forms.Dishes;
 using WinApk_Entity.Forms.Restaurant;
+using WinApk_Entity.Forms.User;
 
 namespace WinApk_Entity.Forms
 {
@@ -23,8 +24,6 @@ namespace WinApk_Entity.Forms
 
             if(role == 3)
             {
-                UserAddBtn.Visible = true;
-                UserDelBtn.Visible = true;
                 UserEditBtn.Visible = true;
             }
                 
@@ -42,17 +41,6 @@ namespace WinApk_Entity.Forms
             AddDish_vr.FormBorderStyle = FormBorderStyle.None;
             this.canvasPanel.Controls.Add(AddDish_vr);
             AddDish_vr.Show();
-        }
-
-        private void DelBtn_Click(object sender, EventArgs e)
-        {
-            isClicked(sender);
-
-            this.canvasPanel.Controls.Clear();
-            DeleteDish DeleteDish_vr = new DeleteDish() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            DeleteDish_vr.FormBorderStyle = FormBorderStyle.None;
-            this.canvasPanel.Controls.Add(DeleteDish_vr);
-            DeleteDish_vr.Show();
         }
 
         private void EditBtn_Click(object sender, EventArgs e)
@@ -88,30 +76,15 @@ namespace WinApk_Entity.Forms
             EditRestaurant_vr.Show();
         }
 
-        private void deleteRestaurantBtn_Click(object sender, EventArgs e)
+        private void UserEditBtn_Click(object sender, EventArgs e)
         {
             isClicked(sender);
 
             this.canvasPanel.Controls.Clear();
-            DeleteRestaurant DeleteRestaurant_vr = new DeleteRestaurant() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            DeleteRestaurant_vr.FormBorderStyle = FormBorderStyle.None;
-            this.canvasPanel.Controls.Add(DeleteRestaurant_vr);
-            DeleteRestaurant_vr.Show();
-        }
-
-        private void UserAddBtn_Click(object sender, EventArgs e)
-        {
-            isClicked(sender);
-        }
-
-        private void UserDelBtn_Click(object sender, EventArgs e)
-        {
-            isClicked(sender);
-        }
-
-        private void UserEditBtn_Click(object sender, EventArgs e)
-        {
-            isClicked(sender);
+            EditUser EditUser_vr = new EditUser() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            EditUser_vr.FormBorderStyle = FormBorderStyle.None;
+            this.canvasPanel.Controls.Add(EditUser_vr);
+            EditUser_vr.Show();
         }
 
         private void isClicked(object sender)
@@ -125,24 +98,16 @@ namespace WinApk_Entity.Forms
 
         private void allClicked()
         {
-            UserAddBtn.ForeColor = font;
-            UserDelBtn.ForeColor = font;
             UserEditBtn.ForeColor = font;
             AddBtn.ForeColor = font;
-            DelBtn.ForeColor = font;
             EditBtn.ForeColor = font;
             addRestaurantBtn.ForeColor = font;
-            deleteRestaurantBtn.ForeColor = font;
             editRestaurantBtn.ForeColor = font;
 
-            UserAddBtn.BackColor = background;
-            UserDelBtn.BackColor = background;
             UserEditBtn.BackColor = background;
             AddBtn.BackColor = background;
-            DelBtn.BackColor = background;
             EditBtn.BackColor = background;
             addRestaurantBtn.BackColor = background;
-            deleteRestaurantBtn.BackColor = background;
             editRestaurantBtn.BackColor = background;
         }
     }

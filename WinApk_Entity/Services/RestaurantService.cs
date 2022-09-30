@@ -39,15 +39,13 @@ namespace WinApk_Entity.Services
             _mapperToDto = new Mapper(configToDto);
 
         }
-        public void LoadRestaurant(ComboBox comboBox)
+        public List<Restaurant> LoadRestaurant()
         {
             var restaurants = _dbContext
                 .Restaurants
                 .ToList();
 
-            comboBox.DataSource = restaurants;
-            comboBox.ValueMember = "Id";
-            comboBox.DisplayMember = "Name";
+            return restaurants;
         }
 
         public AddRestaurantDto ShowRestaurant (string name)
@@ -94,18 +92,33 @@ namespace WinApk_Entity.Services
             var result = _dbContext
                 .Restaurants
                 .Include(r => r.Address)
+                .Include(r=>r.Dishes)
                 .FirstOrDefault(d => d.Name == name);
+
+            if (result == null)
+            {
+                return;
+            }
 
             var adress = _dbContext
                 .Addresses
                 .FirstOrDefault(a => a.Restaurant == result);
 
-            if (result != null)
+            var dishes = _dbContext
+                .Dishs
+                .Where(d => d.Restaurant == result)
+                .ToList();
+
+            if (dishes != null)
             {
-                _dbContext.Remove(result);
-                _dbContext.Remove(adress);
-                _dbContext.SaveChanges();
+                foreach(var dish in dishes)
+                {
+                    _dbContext.Remove(dish);
+                }
             }
+            _dbContext.Remove(adress);
+            _dbContext.Remove(result);
+            _dbContext.SaveChanges();
         }
 
         public void EditRestaurant(string name, AddRestaurantDto dto)

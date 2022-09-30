@@ -13,6 +13,7 @@ namespace WinApk_Entity
 
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1("www@www.pl",3));
+            //Application.Run(new LoginPanel());
         }
     }
 }
